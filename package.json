@@ -10,7 +10,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev ts-node-dev app.ts",
+    "dev": "NODE_ENV=dev ts-node-dev src/app.ts",
     "create:database": "ts-node-dev -r dotenv/config ./src/database/scripts/pgCreate.db.ts",
     "drop:database": "ts-node-dev -r dotenv/config ./src/database/scripts/pgDrop.db.ts",
     "seeds": "ts-node-dev -r dotenv/config ./src/database/seeds/index.ts",
@@ -45,6 +45,7 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
