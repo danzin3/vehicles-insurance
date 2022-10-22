@@ -5,26 +5,6 @@ The main target of this project is to show an express architecture and
 skills that can be used like reference for a commercial API project, using
 node js with typescript and express framework.
 
-### First Steps
-
-This project was created with reference to a DER diagram of a database.
-
-The diagram was made using the MySQL Workbench software. Although the project database is in Postgre, the Mysql workbench is a great tool for drawing DER (Entity and Relationship Diagram) of relational databases.
-
-In the assets folder, there is two files. First, the png file that is an image to the diagram exported by workbench. Second, the mwb file that is the diagram in self and can be opened and editable by a Mysql workbench when some change or feature does necessary.
-
-It is a not good idea control the version these two files with git manager. So, when a change was done, it is necessary to remove these files and create it again in the same directory and with the respective names.
-
-This is the DER diagram of the project:
-
-![alt text](https://github.com/danzin3/vehicles-insurance/blob/master/assets/database-diagram.png?raw=true)
-
-Notes:
-
-\*) The public_id column is a column to store a unique id of type: uuid v4.
-
-\*) Most tables, especially those that will be managed by user intervention, have the fields ( created_at, updated_at, deleted_at ). The idea of ​​these three fields is to store the date and time of when a certain record was created/inserted into the table, of the last change and of the logical deletion of a certain record for data consistency and auditing purposes in the database.
-
 ### Project Layers and Flow
 
 After a client request, theses layers are executed in order:
@@ -99,4 +79,30 @@ or
 
 ```
 $ yarn create:database dev
+```
+
+4. Execute the Project Migrations
+
+```
+$ npm run migrations:run
+```
+
+or
+
+```
+$ yarn migrations:run
+```
+
+### Creation Tools
+
+Creating Migrations
+
+```
+$ npm run typeorm migration:create src/database/migrations/MigrationName
+```
+
+or
+
+```
+$ yarn typeorm migration:create src/database/migrations/MigrationName
 ```

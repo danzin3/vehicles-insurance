@@ -16,7 +16,7 @@
     "seeds": "ts-node-dev -r dotenv/config ./src/database/seeds/index.ts",
     "test": "NODE_ENV=test && npm run create:database test && jest --config jest.config.json --no-cache && npm run drop:database test",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "migrations:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/configs/dataSource/index.ts",
+    "migrations:run": "ts-node-dev -r dotenv/config -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/configs/dataSource/index.ts",
     "migrations:revert": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert -d src/configs/dataSource/index.ts"
   },
   "dependencies": {
