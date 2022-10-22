@@ -9,7 +9,7 @@ function itsMissing(msg: string): string {
 }
 
 function invalidParams(param: string): string {
-  return `${param} are not valid`;
+  return `${param} is not valid`;
 }
 
 function notFound(param: string): string {

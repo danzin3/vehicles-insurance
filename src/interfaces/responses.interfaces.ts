@@ -19,13 +19,6 @@ export interface IErrorResponse {
   response?: IErrorBody;
 }
 
-export interface IPagination {
-  currentPage: number;
-  quantItems: number;
-  totalItems: number;
-  totalPages: number;
-}
-
 export interface ISingleObject {
   objectKeys: Array<string>;
   description: string;
@@ -36,7 +29,7 @@ export interface IDefaultResponse<T> {
   message: string;
   response: {
     success: boolean;
-    info?: ISingleObject | IPagination;
+    info?: ISingleObject;
     data: Array<T> | T;
   };
 }

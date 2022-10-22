@@ -117,6 +117,12 @@ or
 $ yarn dev
 ```
 
+### Auxiliary Tools
+
+https://www.geradordecpf.org/ --> To get valid cpf for tests of creation client endpoint.
+
+https://bcrypt-generator.com/ --> Create and compare Hash of string values.
+
 ### Creation Tools
 
 Creating Migrations
