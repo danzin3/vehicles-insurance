@@ -15,7 +15,15 @@ In the assets folder, there is two files. First, the png file that is an image t
 
 It is a not good idea control the version these two files with git manager. So, when a change was done, it is necessary to remove these files and create it again in the same directory and with the respective names.
 
+This is the DER diagram of the project:
+
 ![alt text](https://github.com/danzin3/vehicles-insurance/blob/master/assets/database-diagram.png?raw=true)
+
+Notes:
+
+\*) The public_id column is a column to store a unique id of type: uuid v4.
+
+\*) Most tables, especially those that will be managed by user intervention, have the fields ( created_at, updated_at, deleted_at ). The idea of ​​these three fields is to store the date and time of when a certain record was created/inserted into the table, of the last change and of the logical deletion of a certain record for data consistency and auditing purposes in the database.
 
 ### Project Layers and Flow
 
