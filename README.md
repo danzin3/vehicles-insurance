@@ -103,7 +103,18 @@ or
 
 ```
 $ yarn seeds
+```
 
+6. Start the project
+
+```
+$ npm run dev
+```
+
+or
+
+```
+$ yarn dev
 ```
 
 ### Creation Tools
