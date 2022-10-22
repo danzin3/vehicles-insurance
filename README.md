@@ -34,7 +34,7 @@ After a client request, theses layers are executed in order:
 3. Services --> Used to make the business rule of the project;
 4. Repositories --> Used to manager the entities of the project with the database;
 
-### Folder Structure
+### Folder Structure (in short)
 
 configs --> It is a folder that have the project and frameworks configurations like express and environments variables.
 
@@ -90,3 +90,13 @@ DATABASE_TESTING=
 Note: The NODE_ENV, CORS environments and DB_SCHEMA is optional.
 
 3. Create the Database Project (Using postgres). To create a database and run the migrations, make sure to access the postgre server as a 'postgres' user or an user that have permission to create database and tables. For while, the create database command does work only in postgre server database.
+
+```
+$ npm run create:database dev
+```
+
+or
+
+```
+$ yarn create:database dev
+```

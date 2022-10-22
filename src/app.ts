@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 import { checkEnvs, PinoLogger } from './utils';
+import { AppDataSource } from './configs/dataSource';
 import { Enviroments } from './enums';
 import { app } from './configs/express';
 import env from './configs/env';
@@ -11,10 +12,10 @@ const port = env().application.port;
 async function startApp() {
   try {
     await checkEnvs();
-    //await AppDataSource.initialize();
+    await AppDataSource.initialize();
     app.listen(port, () => {
       logger.genericLog(
-        `All rigth, it's done! :) App is running on port: ${port}`,
+        `All rigth, it's done! :) Application is running on port: ${port}`,
       );
     });
   } catch (error) {
