@@ -93,6 +93,19 @@ or
 $ yarn migrations:run
 ```
 
+5. Execute the Project Seeds
+
+```
+$ npm run seeds
+```
+
+or
+
+```
+$ yarn seeds
+
+```
+
 ### Creation Tools
 
 Creating Migrations
