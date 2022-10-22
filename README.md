@@ -15,6 +15,8 @@ In the assets folder, there is two files. First, the png file that is an image t
 
 It is a not good idea control the version these two files with git manager. So, when a change was done, it is necessary to remove these files and create it again in the same directory and with the respective names.
 
+![alt text](https://github.com/[danzin3]/[vehicles-insurance]/blob/master/database-diagram.png?raw=true)
+
 ### Project Layers and Flow
 
 After a client request, theses layers are executed in order:
@@ -44,9 +46,12 @@ utils --> Contains some functions that helps the project at all.
 
 ```
 $ npm install
-or
-$ yarn
+```
 
+or
+
+```
+$ yarn
 ```
 
 2. Create the .env file in the root of the project as the follow exemple:
