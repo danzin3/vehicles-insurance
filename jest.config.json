@@ -1,0 +1,23 @@
+{
+    "moduleFileExtensions": [
+        "js",
+        "json",
+        "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.test\\.ts$",
+    "transform": {
+        "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "<rootDir>/**/*.ts",
+        "!<rootDir>/database/migrations/*.ts",
+        "!<rootDir>/database/scripts/*.ts",
+        "!<rootDir>/database/seeds/*.ts",
+        "!<rootDir>/database/subscribers/*.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "verbose": true,
+    "testEnvironment": "node"
+}

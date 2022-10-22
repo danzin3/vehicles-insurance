@@ -1,0 +1,60 @@
+{
+  "name": "vehicles-insurance",
+  "version": "1.0.0",
+  "description": "A project to manage clients, vehicles and events in a vehicle insurance company",
+  "main": "/src/app.ts",
+  "author": "Marcos Danrlei Andrade",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=dev ts-node-dev app.ts",
+    "create:database": "ts-node-dev -r dotenv/config ./src/database/scripts/pgCreate.db.ts",
+    "drop:database": "ts-node-dev -r dotenv/config ./src/database/scripts/pgDrop.db.ts",
+    "seeds": "ts-node-dev -r dotenv/config ./src/database/seeds/index.ts",
+    "test": "NODE_ENV=test && npm run create:database test && jest --config jest.config.json --no-cache && npm run drop:database test",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migrations:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/configs/dataSource/index.ts",
+    "migrations:revert": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert -d src/configs/dataSource/index.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "class-validator": "^0.13.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.8.0",
+    "pino": "^8.7.0",
+    "pino-pretty": "^9.1.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.10",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.14",
+    "@types/jest": "^29.2.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/pg": "^8.6.5",
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^29.2.1",
+    "prettier": "^2.7.1",
+    "supertest": "^6.3.0",
+    "ts-jest": "^29.0.3",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.4"
+  }
+}
