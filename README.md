@@ -15,7 +15,7 @@ In the assets folder, there is two files. First, the png file that is an image t
 
 It is a not good idea control the version these two files with git manager. So, when a change was done, it is necessary to remove these files and create it again in the same directory and with the respective names.
 
-![alt text](https://github.com/danzin3/vehicles-insurance/blob/master/database-diagram.png?raw=true)
+![alt text](https://github.com/danzin3/vehicles-insurance/blob/master/assets/database-diagram.png?raw=true)
 
 ### Project Layers and Flow
 
