@@ -3,6 +3,7 @@ import { ClientRepository } from '../../repositories';
 import { HttpStatus } from '../../enums';
 import { SingleClientResDTO } from '../../DTOs/client';
 import { buildNotFoundResponse } from '../errors';
+import { plainToClass } from 'class-transformer';
 
 const repository = ClientRepository.getInstance();
 
@@ -30,7 +31,7 @@ export async function updateClient(
     message: 'Sucesso ao Editar dados do Cliente!',
     response: {
       success: true,
-      data: response.raw[0],
+      data: plainToClass(Client, response.raw[0]),
     },
   };
 }

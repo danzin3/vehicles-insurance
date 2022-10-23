@@ -8,9 +8,11 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Event } from './event.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity('clients')
 export class Client {
+  @Exclude()
   @PrimaryGeneratedColumn('identity')
   public id: number;
 

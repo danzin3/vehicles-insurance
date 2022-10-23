@@ -22,6 +22,12 @@ function initClientRouters() {
     ClientBodyReqValidade,
     clientController.updateClient,
   );
+
+  clientRouters.get(
+    `${prefix}/${RouteTags.CLIENTS}/:uuid`,
+    isUuidV4Param,
+    clientController.getClientById,
+  );
 }
 
 initClientRouters();

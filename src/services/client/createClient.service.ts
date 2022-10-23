@@ -3,6 +3,7 @@ import { ClientRepository } from '../../repositories';
 import { SingleClientResDTO } from '../../DTOs/client';
 import { HttpStatus } from '../../enums';
 import { v4 as uuidv4 } from 'uuid';
+import { plainToClass } from 'class-transformer';
 
 const repository = ClientRepository.getInstance();
 
@@ -16,7 +17,7 @@ export async function createClient(data: Client): Promise<SingleClientResDTO> {
     message: 'Sucesso ào cadastrar cliente!',
     response: {
       success: true,
-      data: clientCreated,
+      data: plainToClass(Client, clientCreated),
     },
   };
 }

@@ -35,4 +35,18 @@ export class ClientController {
       next(error);
     }
   };
+
+  public getClientById = async (
+    req: IGlobalRequest,
+    res: Response,
+    next: NextFunction,
+  ) => {
+    try {
+      const clientId = req.params.uuid;
+      const response = await ClientServices.getClientById(clientId);
+      res.status(HttpStatus.OK).json(response);
+    } catch (error) {
+      next(error);
+    }
+  };
 }
