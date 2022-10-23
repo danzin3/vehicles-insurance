@@ -14,7 +14,7 @@ export default () => ({
     methods: process.env.CORS_METHODS
       ? process.env.CORS_METHODS.split(' ')
       : [],
-    credentials: Boolean(process.env.CORS_CREDENTIALS),
+    credentials: Boolean(process.env.CORS_CREDENTIALS) || false,
   },
   database: {
     host: process.env.DB_HOST,

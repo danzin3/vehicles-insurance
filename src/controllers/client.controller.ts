@@ -49,4 +49,18 @@ export class ClientController {
       next(error);
     }
   };
+
+  public deleteClient = async (
+    req: IGlobalRequest,
+    res: Response,
+    next: NextFunction,
+  ) => {
+    try {
+      const clientId = req.params.uuid;
+      const response = await ClientServices.deleteClient(clientId);
+      res.status(HttpStatus.OK).json(response);
+    } catch (error) {
+      next(error);
+    }
+  };
 }

@@ -28,6 +28,12 @@ function initClientRouters() {
     isUuidV4Param,
     clientController.getClientById,
   );
+
+  clientRouters.delete(
+    `${prefix}/${RouteTags.CLIENTS}/:uuid`,
+    isUuidV4Param,
+    clientController.deleteClient,
+  );
 }
 
 initClientRouters();
