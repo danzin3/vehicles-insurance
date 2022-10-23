@@ -7,13 +7,17 @@ import {
   DeleteDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { EventTypes, EventStatus } from '../../enums';
 import { Vehicle } from './vehicle.entity';
 import { Client } from './client.entity';
+import { Exclude } from 'class-transformer';
+import { EventClientInvolved } from './eventClientInvolved.entity';
 
 @Entity('events')
 export class Event {
+  @Exclude()
   @PrimaryGeneratedColumn('identity')
   public id: number;
 
@@ -27,6 +31,12 @@ export class Event {
   @ManyToOne(() => Client, (client) => client.events)
   @JoinColumn({ name: 'client_id' })
   public client: Client;
+
+  @OneToMany(
+    () => EventClientInvolved,
+    (eventClientInvolved) => eventClientInvolved.event,
+  )
+  public eventsClientsInvolved: EventClientInvolved[];
 
   @Column({ type: 'enum', enum: EventTypes, name: 'event_type' })
   public eventType: EventTypes;

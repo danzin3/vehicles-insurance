@@ -1,7 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import { handlerException } from '../../middlewares';
+import { handlerException, setInitDatetime } from '../../middlewares';
 import { clientRouters } from '../../routes';
 import env from '../env';
 
@@ -18,6 +18,8 @@ function expressInitialization() {
       credentials: env().cors.credentials,
     }),
   );
+
+  app.use(setInitDatetime);
 
   app.use([clientRouters]);
 

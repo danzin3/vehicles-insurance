@@ -6,8 +6,10 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 import { Event } from './event.entity';
+import { ExtraClient } from './extraClient.entity';
 import { Exclude } from 'class-transformer';
 
 @Entity('clients')
@@ -21,6 +23,9 @@ export class Client {
 
   @OneToMany(() => Event, (event) => event.client)
   public events: Event[];
+
+  @OneToOne(() => ExtraClient, (extraClient) => extraClient.client)
+  public extraClient: ExtraClient;
 
   @Column()
   public name: string;
