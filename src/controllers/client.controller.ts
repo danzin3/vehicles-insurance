@@ -21,4 +21,18 @@ export class ClientController {
       next(error);
     }
   };
+
+  public updateClient = async (
+    req: IGlobalRequest,
+    res: Response,
+    next: NextFunction,
+  ) => {
+    try {
+      const clientId = req.params.uuid;
+      const response = await ClientServices.updateClient(req.body, clientId);
+      res.status(HttpStatus.OK).json(response);
+    } catch (error) {
+      next(error);
+    }
+  };
 }

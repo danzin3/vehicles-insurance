@@ -2,22 +2,29 @@ import { Request, Response, NextFunction } from 'express';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
 import { CreateClientReqDTO } from '../createClientReq.dto';
+import { UpdateClientReqDTO } from '../updateClientReq.dto';
 import { IErrorResponse } from '../../../interfaces';
 import { ErrorsMessages } from '../../../constants';
 import { getClassValidatorErrors, objectShapeValidate } from '../../../helpers';
-import { HttpStatus, Enviroments } from '../../../enums';
+import { HttpStatus, Enviroments, HttpMethods } from '../../../enums';
 import { PinoLogger } from '../../../utils';
 import env from '../../../configs/env';
 
 const logger = PinoLogger.getInstance();
 const isTest = env().application.environment === Enviroments.TESTING;
 
-const CreateClientReqValidade = (
+const ClientBodyReqValidade = (
   request: Request,
   response: Response,
   next: NextFunction,
 ) => {
-  const client = plainToClass(CreateClientReqDTO, request.body);
+  let client: any;
+
+  if (request.method === HttpMethods.POST) {
+    client = plainToClass(CreateClientReqDTO, request.body);
+  } else if (request.method === HttpMethods.PATCH) {
+    client = plainToClass(UpdateClientReqDTO, request.body);
+  }
 
   if (
     !objectShapeValidate(
@@ -97,4 +104,4 @@ const CreateClientReqValidade = (
   });
 };
 
-export { CreateClientReqValidade };
+export { ClientBodyReqValidade };

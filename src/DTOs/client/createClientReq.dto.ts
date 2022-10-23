@@ -5,6 +5,7 @@ import {
   IsOptional,
   IsString,
   MaxLength,
+  NotEquals,
 } from 'class-validator';
 import { Client } from '../../database/entities';
 import { ClassValidatorMessages } from '../../constants';
