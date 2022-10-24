@@ -2,7 +2,7 @@ import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import { handlerException, setInitDatetime } from '../../middlewares';
-import { clientRouters } from '../../routes';
+import { clientRouters, eventRouters } from '../../routes';
 import env from '../env';
 
 const app = express();
@@ -21,7 +21,7 @@ function expressInitialization() {
 
   app.use(setInitDatetime);
 
-  app.use([clientRouters]);
+  app.use([clientRouters, eventRouters]);
 
   app.use(handlerException);
 }

@@ -2,15 +2,23 @@ import { Client } from '../../database/entities';
 import { ClientRepository } from '../../repositories';
 import { SingleClientResDTO } from '../../DTOs/client';
 import { HttpStatus } from '../../enums';
-import { v4 as uuidv4 } from 'uuid';
 import { plainToClass } from 'class-transformer';
 
 const repository = ClientRepository.getInstance();
 
 export async function createClient(data: Client): Promise<SingleClientResDTO> {
-  data.publicId = uuidv4();
+  let clientCreated: Client;
+  const clientFounded = await repository.clientRepository.findOne({
+    where: { cpf: data.cpf },
+    relations: ['extraClient'],
+  });
 
-  const clientCreated = await repository.clientRepository.save(data);
+  if (clientFounded) {
+    await repository.migrateClient(clientFounded);
+    clientCreated = clientFounded;
+  } else {
+    clientCreated = await repository.clientRepository.save(data);
+  }
 
   return {
     statusCode: HttpStatus.CREATED,
