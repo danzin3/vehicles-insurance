@@ -31,7 +31,7 @@ async function enviroment() {
       databaseName = process.env.DATABASE_NAME;
       break;
     case Enviroments.TESTING:
-      databaseName = process.env.DATABASE_TEST;
+      databaseName = process.env.DATABASE_TESTING;
       break;
     default:
       throw {

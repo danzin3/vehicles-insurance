@@ -1,5 +1,4 @@
 import { DataSourceOptions } from 'typeorm';
-import { Enviroments } from '../../enums';
 import env from '../env';
 
 export const ormConfigs: DataSourceOptions = {

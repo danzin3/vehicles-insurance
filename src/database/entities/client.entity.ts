@@ -42,12 +42,15 @@ export class Client {
   @Column()
   public description: string;
 
+  @Exclude()
   @CreateDateColumn({ name: 'created_at', select: false })
   public createdAt: Date;
 
+  @Exclude()
   @UpdateDateColumn({ name: 'updated_at', select: false })
   public updatedAt: Date;
 
+  @Exclude()
   @DeleteDateColumn({ name: 'deleted_at', select: false })
   public deletedAt: Date;
 }

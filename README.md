@@ -117,6 +117,24 @@ or
 $ yarn dev
 ```
 
+### Integration Tests
+
+\*) Obs: Before run the tests, make sure to access the postgre server as a 'postgres' user or an user that have permission to create database and tables.
+
+\*) Important: For windows operating systems, the tests will not works, it is necessary adapt the script/test.sh file instructions for the specific way ( cmd or powerShell ).
+
+Run the comand:
+
+```
+$ npm run test:e2e
+```
+
+or
+
+```
+$ yarn test:e2e
+```
+
 ### Auxiliary Tools
 
 https://www.geradordecpf.org/ --> To get valid cpf for tests of creation client endpoint.
