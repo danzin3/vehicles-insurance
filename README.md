@@ -135,6 +135,10 @@ or
 $ yarn test:e2e
 ```
 
+### Swagger Endpoints Documentation
+
+\*) After running the project, access the url: http://localhost:3000/docs
+
 ### Auxiliary Tools
 
 https://www.geradordecpf.org/ --> To get valid cpf for tests of creation client endpoint.

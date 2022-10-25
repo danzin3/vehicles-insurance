@@ -1,6 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { handlerException, setInitDatetime } from '../../middlewares';
 import { clientRouters, eventRouters } from '../../routes';
 import env from '../env';
@@ -11,6 +12,7 @@ function expressInitialization() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(helmet());
+  app.use(cookieParser());
   app.use(
     cors({
       origin: env().cors.clientsOrigin,
