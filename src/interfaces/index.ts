@@ -3,7 +3,6 @@ export { IGlobalRequest } from './globalRequest.interface';
 export {
   IDefaultResponse,
   IErrorResponse,
-  IPagination,
   ISingleObject,
   IErrorBody,
 } from './responses.interfaces';
